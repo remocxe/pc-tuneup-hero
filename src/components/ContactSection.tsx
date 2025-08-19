@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+com.import { useState, useEffect } from "react";
 import emailjs from 'emailjs-com';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -55,6 +55,7 @@ const ContactSection = () => {
       service: formData.service,
       message: formData.notes,
       parts_approval: formData.partsApproval ? "Yes" : "No",
+      to_email: "chartsmiencraft@gmail.com", // Updated recipient email address
       to_name: "PC Tuneup Hero",
     };
 
@@ -79,10 +80,10 @@ const ContactSection = () => {
       });
     }, (error) => {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again or email directly.",
-        variant: "destructive"
-      });
+  title: "Error",
+  description: "Failed to send message. Please try again or email directly.",
+  variant: "destructive"
+});
       console.error("EmailJS error:", error);
     });
   };
