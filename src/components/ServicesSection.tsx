@@ -11,7 +11,8 @@ const ServicesSection = () => {
       features: [
         "Malware removal",
         "Startup optimization", 
-        "Temporary file cleanup"
+        "Temporary file cleanup",
+        "Basic dust removal"
       ]
     },
     {
@@ -23,7 +24,8 @@ const ServicesSection = () => {
         "Everything in Basic",
         "Windows updates",
         "Driver checks",
-        "Performance optimization"
+        "Performance optimization",
+        "Intensive dust cleaning"
       ],
       popular: true
     },
@@ -36,7 +38,8 @@ const ServicesSection = () => {
         "Everything in Full",
         "Offline malware scan",
         "Privacy hardening", 
-        "Restore point creation"
+        "Restore point creation",
+        "Deep internal dust cleaning"
       ]
     }
   ];
