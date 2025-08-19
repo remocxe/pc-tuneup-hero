@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: "/", // Ensure base path is correct for production
   plugins: [
     react(),
     mode === 'development' &&
