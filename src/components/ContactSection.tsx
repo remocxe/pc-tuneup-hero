@@ -1,4 +1,4 @@
-com.import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import emailjs from 'emailjs-com';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
