@@ -57,42 +57,51 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className={`relative transition-all duration-300 hover:shadow-medium hover:-translate-y-2 ${
-                service.popular ? 'border-primary shadow-soft scale-105' : ''
-              }`}
-            >
-              {service.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-accent text-accent-foreground px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-              
-              <CardHeader className="text-center pb-4">
-                <div className="flex justify-center mb-4">
-                  {service.icon}
-                </div>
-                <CardTitle className="text-2xl">{service.title}</CardTitle>
-                <div className="text-4xl font-bold text-primary">{service.price}</div>
-                <CardDescription className="text-base">{service.description}</CardDescription>
-              </CardHeader>
-              
-              <CardContent>
-                <ul className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+          {services.map((service, index) => {
+            const handleCardClick = () => {
+              // Set the service in URL hash and scroll to contact
+              window.location.hash = `contact-${service.title.toLowerCase().replace(' ', '-')}`;
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            return (
+              <Card 
+                key={index} 
+                onClick={handleCardClick}
+                className={`relative transition-all duration-300 hover:shadow-medium hover:-translate-y-2 cursor-pointer ${
+                  service.popular ? 'border-primary shadow-soft scale-105' : ''
+                }`}
+              >
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-accent text-accent-foreground px-4 py-1 rounded-full text-sm font-semibold">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                
+                <CardHeader className="text-center pb-4">
+                  <div className="flex justify-center mb-4">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  <div className="text-4xl font-bold text-primary">{service.price}</div>
+                  <CardDescription className="text-base">{service.description}</CardDescription>
+                </CardHeader>
+                
+                <CardContent>
+                  <ul className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-3">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

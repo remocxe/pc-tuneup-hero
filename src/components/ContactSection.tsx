@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -18,6 +18,33 @@ const ContactSection = () => {
     notes: "",
     partsApproval: false
   });
+
+  // Auto-fill service based on URL hash
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#contact-')) {
+      const serviceType = hash.replace('#contact-', '');
+      let serviceValue = "";
+      
+      switch(serviceType) {
+        case 'basic-cleanup':
+          serviceValue = 'basic';
+          break;
+        case 'full-cleanup':
+          serviceValue = 'full';
+          break;
+        case 'deep-cleanup':
+          serviceValue = 'deep';
+          break;
+      }
+      
+      if (serviceValue) {
+        setFormData(prev => ({ ...prev, service: serviceValue }));
+        // Clear the hash after setting the service
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,7 +119,7 @@ const ContactSection = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="service">Service Requested</Label>
-                    <Select onValueChange={(value) => setFormData({...formData, service: value})}>
+                    <Select value={formData.service} onValueChange={(value) => setFormData({...formData, service: value})}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select service" />
                       </SelectTrigger>
@@ -102,6 +129,7 @@ const ContactSection = () => {
                         <SelectItem value="deep">Deep Cleanup (£30)</SelectItem>
                         <SelectItem value="upgrade">Upgrades & Parts</SelectItem>
                         <SelectItem value="buying">Selling Computer</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
