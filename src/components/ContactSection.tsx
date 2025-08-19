@@ -47,17 +47,43 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "I'll respond within 24 hours. Thank you for choosing our service!"
-    });
-    setFormData({
-      name: "",
-      email: "",
-      deviceType: "",
-      service: "",
-      notes: "",
-      partsApproval: false
+    
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      device_type: formData.deviceType,
+      service: formData.service,
+      message: formData.notes,
+      parts_approval: formData.partsApproval ? "Yes" : "No",
+      to_name: "PC Tuneup Hero",
+    };
+
+    emailjs.send(
+      "service_t1zblwn",
+      "template_xg4yt28",
+      templateParams,
+      "AfvZjaL4EZvTkUQ5b"
+    )
+    .then((response) => {
+      toast({
+        title: "Message Sent!",
+        description: "I'll respond within 24 hours. Thank you for choosing our service!"
+      });
+      setFormData({
+        name: "",
+        email: "",
+        deviceType: "",
+        service: "",
+        notes: "",
+        partsApproval: false
+      });
+    }, (error) => {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email directly.",
+        variant: "destructive"
+      });
+      console.error("EmailJS error:", error);
     });
   };
 
