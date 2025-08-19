@@ -19,31 +19,29 @@ const ContactSection = () => {
     partsApproval: false
   });
 
-  // Auto-fill service based on URL hash
+  // Auto-fill service based on URL hash and listen to hash changes
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash.startsWith('#contact-')) {
-      const serviceType = hash.replace('#contact-', '');
-      let serviceValue = "";
-      
-      switch(serviceType) {
-        case 'basic-cleanup':
-          serviceValue = 'basic';
-          break;
-        case 'full-cleanup':
-          serviceValue = 'full';
-          break;
-        case 'deep-cleanup':
-          serviceValue = 'deep';
-          break;
+    const applyFromHash = () => {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#contact-')) {
+        const serviceType = hash.replace('#contact-', '');
+        const map: Record<string, string> = {
+          'basic-cleanup': 'basic',
+          'full-cleanup': 'full',
+          'deep-cleanup': 'deep',
+        };
+        const serviceValue = map[serviceType];
+        if (serviceValue) {
+          setFormData(prev => ({ ...prev, service: serviceValue }));
+          // Clear the hash after setting the service
+          window.history.replaceState(null, '', window.location.pathname);
+        }
       }
-      
-      if (serviceValue) {
-        setFormData(prev => ({ ...prev, service: serviceValue }));
-        // Clear the hash after setting the service
-        window.history.replaceState(null, '', window.location.pathname);
-      }
-    }
+    };
+
+    applyFromHash();
+    window.addEventListener('hashchange', applyFromHash);
+    return () => window.removeEventListener('hashchange', applyFromHash);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
