@@ -5,7 +5,7 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Basic Cleanup",
-      price: "£15",
+      price: "£10",
       icon: <CheckCircle className="w-8 h-8 text-primary" />,
       description: "Essential system maintenance for better performance",
       features: [
@@ -17,7 +17,7 @@ const ServicesSection = () => {
     },
     {
       title: "Full Cleanup",
-      price: "£25",
+      price: "£15",
       icon: <HardDrive className="w-8 h-8 text-primary" />,
       description: "Comprehensive system optimization and updates",
       features: [
@@ -31,7 +31,7 @@ const ServicesSection = () => {
     },
     {
       title: "Deep Cleanup",
-      price: "£35", 
+      price: "£30", 
       icon: <ShieldCheck className="w-8 h-8 text-primary" />,
       description: "Complete system security and performance overhaul",
       features: [

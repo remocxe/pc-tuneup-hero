@@ -97,9 +97,9 @@ const ContactSection = () => {
                         <SelectValue placeholder="Select service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="basic">Basic Cleanup (£15)</SelectItem>
-                        <SelectItem value="full">Full Cleanup (£25)</SelectItem>
-                        <SelectItem value="deep">Deep Cleanup (£35)</SelectItem>
+                        <SelectItem value="basic">Basic Cleanup (£10)</SelectItem>
+                        <SelectItem value="full">Full Cleanup (£15)</SelectItem>
+                        <SelectItem value="deep">Deep Cleanup (£30)</SelectItem>
                         <SelectItem value="upgrade">Upgrades & Parts</SelectItem>
                         <SelectItem value="buying">Selling Computer</SelectItem>
                       </SelectContent>
