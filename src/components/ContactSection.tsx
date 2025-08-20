@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import emailjs from 'emailjs-com';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -48,44 +47,91 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      device_type: formData.deviceType,
-      service: formData.service,
-      message: formData.notes,
-      parts_approval: formData.partsApproval ? "Yes" : "No",
-      to_email: "chartsmiencraft@gmail.com", // Updated recipient email address
-      to_name: "PC Tuneup Hero",
+    // Send to Discord webhook
+    const sendToDiscord = async () => {
+      const webhookUrl = "https://discord.com/api/webhooks/1407781598748737546/7pRx9mjXI1DMxrb6EGEIy16bEMRLXWq4PeGo3Sh2Hjj_9n-3Q75GylW_e-2U8ziNbWqZ";
+      
+      const discordEmbed = {
+        embeds: [{
+          title: "🖥️ New Service Request",
+          color: 0x00ff00,
+          fields: [
+            {
+              name: "👤 Name",
+              value: formData.name,
+              inline: true
+            },
+            {
+              name: "📧 Email",
+              value: formData.email,
+              inline: true
+            },
+            {
+              name: "💻 Device Type",
+              value: formData.deviceType || "Not specified",
+              inline: true
+            },
+            {
+              name: "🔧 Service Requested",
+              value: formData.service,
+              inline: true
+            },
+            {
+              name: "📋 Notes",
+              value: formData.notes || "No additional notes",
+              inline: false
+            },
+            {
+              name: "✅ Parts Approval",
+              value: formData.partsApproval ? "Yes" : "No",
+              inline: true
+            }
+          ],
+          timestamp: new Date().toISOString(),
+          footer: {
+            text: "PC Tuneup Hero Contact Form"
+          }
+        }]
+      };
+
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(discordEmbed)
+        });
+
+        if (!response.ok) {
+          throw new Error('TuneUp Hero Error #1000');
+        }
+
+        toast({
+          title: "Message Sent!",
+          description: "Your request has been sent. We'll respond within 24 hours!"
+        });
+        
+        setFormData({
+          name: "",
+          email: "",
+          deviceType: "",
+          service: "",
+          notes: "",
+          partsApproval: false
+        });
+      } catch (error) {
+        console.error('TuneUp Hero Errror:', error);
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive"
+        });
+      }
     };
 
-    emailjs.send(
-      "service_t1zblwn",
-      "template_xg4yt28",
-      templateParams,
-      "AfvZjaL4EZvTkUQ5b"
-    )
-    .then((response) => {
-      toast({
-        title: "Message Sent!",
-        description: "I'll respond within 24 hours. Thank you for choosing our service!"
-      });
-      setFormData({
-        name: "",
-        email: "",
-        deviceType: "",
-        service: "",
-        notes: "",
-        partsApproval: false
-      });
-    }, (error) => {
-      toast({
-  title: "Error",
-  description: "Failed to send message. Please try again or email directly.",
-  variant: "destructive"
-});
-      console.error("EmailJS error:", error);
-    });
+    // Send to Discord only
+    sendToDiscord();
   };
 
   return (
@@ -96,7 +142,7 @@ const ContactSection = () => {
             Get Started Today
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to fix your computer? Fill out the form below and I'll get back to you within 24 hours.
+            Ready to fix your computer? Fill out the form below and we'll get back to you within 24 hours.
           </p>
         </div>
 
@@ -193,7 +239,7 @@ const ContactSection = () => {
 
               <div className="mt-8 text-center p-4 bg-secondary rounded-lg">
                 <p className="text-foreground font-semibold mb-2">
-                  I respond within 24 hours
+                  We respond within 24 hours
                 </p>
                 <p className="text-accent font-bold text-lg">
                   No Fix – No Fee Guarantee

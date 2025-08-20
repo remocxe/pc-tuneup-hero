@@ -31,7 +31,7 @@ const ServicesSection = () => {
     },
     {
       title: "Deep Cleanup",
-      price: "£30", 
+      price: "£20", 
       icon: <ShieldCheck className="w-8 h-8 text-primary" />,
       description: "Complete system security and performance overhaul",
       features: [
@@ -39,7 +39,7 @@ const ServicesSection = () => {
         "Offline malware scan",
         "Privacy hardening", 
         "Restore point creation",
-        "Deep internal dust cleaning"
+        "Deep internal dust & wipe cleaning"
       ]
     }
   ];
