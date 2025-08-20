@@ -47,9 +47,22 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Send to Discord webhook
+    // Send to Discord webhook based on device type
     const sendToDiscord = async () => {
-      const webhookUrl = "https://discord.com/api/webhooks/1407781598748737546/7pRx9mjXI1DMxrb6EGEIy16bEMRLXWq4PeGo3Sh2Hjj_9n-3Q75GylW_e-2U8ziNbWqZ";
+      let webhookUrl;
+      
+      switch (formData.deviceType) {
+        case 'laptop':
+          webhookUrl = "https://discord.com/api/webhooks/1407786323330470141/UCCxy-0TjnRrU5u3EPCuRy6EdvD6r_SU_FdONNbBA4Vv9Qm6iCGywGtFXPex8tFnx3b7";
+          break;
+        case 'other':
+          webhookUrl = "https://discord.com/api/webhooks/1407786427856720025/67J-trfpBDIHuq2zZajcHkMciDWEPd1gqBT5zQK5jRXVbV_g8jJZuIVNsBtCUVloY9fZ";
+          break;
+        case 'desktop':
+        default:
+          webhookUrl = "https://discord.com/api/webhooks/1407781598748737546/7pRx9mjXI1DMxrb6EGEIy16bEMRLXWq4PeGo3Sh2Hjj_9n-3Q75GylW_e-2U8ziNbWqZ";
+          break;
+      }
       
       const discordEmbed = {
         embeds: [{
