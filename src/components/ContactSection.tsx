@@ -213,6 +213,7 @@ const ContactSection = () => {
                         <SelectItem value="full">Full Cleanup (£15)</SelectItem>
                         <SelectItem value="deep">Deep Cleanup (£30)</SelectItem>
                         <SelectItem value="upgrade">Upgrades & Parts</SelectItem>
+                        <SelectItem value="advice">Free Advice</SelectItem>                        
                         <SelectItem value="buying">Selling Computer</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
