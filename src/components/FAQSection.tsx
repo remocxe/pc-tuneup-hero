@@ -9,11 +9,11 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Do I need to back up my files before service?",
-      answer: "Yes, I recommend backing up important files before any service. While I take great care with your data, having a backup ensures your important files are always safe."
+      answer: "Dont worry about this, i always back up files before i touch anything. But feel free to still back it up your self if you feel its needed."
     },
     {
       question: "How long does each service take?",
-      answer: "Basic Cleanup: 30-60 minutes. Full Cleanup: 1-2 hours. Deep Cleanup: 2-3 hours. Upgrade installations vary depending on the hardware but typically 1-2 hours including testing."
+      answer: "Basic Cleanup: 60 minutes. Full Cleanup: 1-3 hours. Deep Cleanup: 3-4 hours. Upgrade installations vary depending on the hardware but typically 30 minutes-2 hours including testing."
     },
     {
       question: "Do you guarantee results?",
@@ -25,11 +25,11 @@ const FAQSection = () => {
     },
     {
       question: "What areas do you serve?",
-      answer: "I provide local computer services in the area. Contact me to confirm if I can service your location. Same-day service is often available for urgent issues."
+      answer: "I provide local computer services in L11 and nearby. Contact me to confirm if I can service your location. Same-day service is often available for urgent issues."
     },
     {
       question: "What if my computer can't be fixed?",
-      answer: "If your computer is beyond economical repair, I'll give you an honest assessment and may offer to buy it for parts. You'll never pay for unsuccessful repair attempts."
+      answer: "If your computer is beyond repair, I'll give you an honest assessment and may offer to buy it for parts. You'll never pay for unsuccessful repair attempts."
     }
   ];
 

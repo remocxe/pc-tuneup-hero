@@ -1,8 +1,19 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, HardDrive, ShieldCheck } from "lucide-react";
+import { CheckCircle, HardDrive, ShieldCheck, CircleHelp } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
+    {
+      title: "Free Advice",
+      price: "£0",
+      icon: <CircleHelp className="w-8 h-8 text-primary" />,
+      description: "Basic Advice for repairs, upgrades and more.",
+      features: [
+        "Basic Repairs",
+        "Basic Knowledge Questions", 
+        "Application recommendation",
+      ]
+    },
     {
       title: "Basic Cleanup",
       price: "£10",

@@ -4,19 +4,19 @@ import { Star } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "John D.",
-      text: "PC runs like new, highly recommend. The deep cleanup service was worth every penny - my computer is faster than it's been in years!",
-      rating: 5
+      name: "No Reviews Yet",
+      text: "Be the first to share your experience.",
+      rating: 0
     },
     {
-      name: "Sarah M.", 
-      text: "Fast and reliable, saved me hours. What would have been a weekend project was done in an afternoon. Professional service at a fair price.",
-      rating: 5
+      name: "No Reviews Yet", 
+      text: "Be the first to share your experience.",
+      rating: 0
     },
     {
-      name: "Mike R.",
-      text: "Excellent upgrade service. Got my RAM and SSD installed with no hassle. Explained everything clearly and the 'no fix, no fee' policy gave me confidence.",
-      rating: 5
+      name: "No Reviews Yet",
+      text: "Be the first to share your experience.",
+      rating: 0
     }
   ];
 

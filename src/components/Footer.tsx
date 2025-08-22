@@ -39,7 +39,6 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail className="w-5 h-5" />
-                <span>your.email@example.com</span>
               </div>
               <p className="text-primary-foreground/80">
                 Local PC Services<br />
@@ -83,7 +82,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center">
           <p className="text-primary-foreground/80">
-            © 2025 Local PC Services. All rights reserved. | Professional Computer Repair & Upgrades
+            © 2025 TuneUp Hero. All rights reserved. | Professional Computer Repair & Upgrades
           </p>
           <Button 
             onClick={scrollToTop}
