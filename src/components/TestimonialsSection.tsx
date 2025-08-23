@@ -5,7 +5,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       name: "No Reviews Yet",
-      text: "Be the first to share your experience".,
+      text: "Be the first to share your experience.",
       rating: 0
     },
     {
