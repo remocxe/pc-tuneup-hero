@@ -162,7 +162,7 @@ const ContactSection = () => {
         <div className="max-w-2xl mx-auto">
           <Card className="shadow-medium">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Book Your Service</CardTitle>
+              <CardTitle className="text-2xl">Contact Me Now</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">

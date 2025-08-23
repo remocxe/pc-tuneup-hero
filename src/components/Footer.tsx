@@ -27,7 +27,7 @@ const Footer = () => {
             size="lg"
             className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 text-lg font-semibold shadow-soft hover:shadow-medium transition-all duration-300"
           >
-            Book Service Now
+            Contact Me Now
           </Button>
         </div>
 

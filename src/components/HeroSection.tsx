@@ -16,7 +16,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 py-20 text-center text-white relative z-20">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
-          Local Computer Cleanup & Virus Removal
+          Computer Services & Virus Removal
           <span className="block text-accent font-normal mt-2">No Fix, No Fee</span>
         </h1>
         
@@ -30,7 +30,7 @@ const HeroSection = () => {
           size="lg" 
           className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-4 shadow-strong hover:shadow-medium transition-all duration-300 hover:scale-105"
         >
-          Book Service Now
+          Contact Now
         </Button>
       </div>
     </section>
