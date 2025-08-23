@@ -5,7 +5,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       name: "No Reviews Yet",
-      text: "Be the first to share your experience.",
+      text: "Be the first to share your experience".,
       rating: 0
     },
     {
@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
             What Customers Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Real feedback from satisfied customers in our local community
+            Feedback from satisfied customers
           </p>
         </div>
 

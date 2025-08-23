@@ -38,11 +38,9 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-center md:justify-start space-x-3">
-                <Mail className="w-5 h-5" />
               </div>
               <p className="text-primary-foreground/80">
-                Local PC Services<br />
-                Professional Computer Repair
+                TuneUpHero@gmail.com<br />
               </p>
             </div>
           </div>
@@ -61,13 +59,10 @@ const Footer = () => {
 
           {/* Social & Guarantee */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
             <div className="flex items-center justify-center md:justify-start space-x-4 mb-4">
               <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
-                <Facebook className="w-5 h-5" />
               </Button>
               <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
-                <Instagram className="w-5 h-5" />
               </Button>
             </div>
             <div className="bg-accent/20 p-4 rounded-lg">
